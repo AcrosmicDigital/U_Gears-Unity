@@ -1,0 +1,81 @@
+using UnityEngine;
+using U.Universal;
+
+public static class UscenesStartup
+{
+    [RuntimeInitializeOnLoadMethod]
+    public static void InitializeOnLoadMethod()
+    {
+        UsceneManager.Instance.Start(configDev);
+    }
+
+
+
+
+
+    private static UscenesConfig configDev = new UscenesConfig
+    {
+        enable = true,
+        printDebugLogs = true,
+        printErrorLogs = true,
+        onFirstSceneLoaded = () => { },
+        uScenesList = new UsceneDef[]
+        {
+            new UsceneDef
+            {
+                name = "Start",
+                onLoad = () =>  { },
+                onSetAsActive = async () =>  
+                {
+                    var loadoperation = await UsceneManager.Instance.LoadScene("Intro", 5);
+
+                    if(loadoperation)
+                        await UsceneManager.Instance.UnloadScene("Start");
+                },
+                onSetAsInactive = () =>  { },
+                onUnload = () =>  { },
+            },
+            new UsceneDef
+            {
+                name = "Intro",
+                onLoad = () =>  { },
+                onSetAsActive = () =>
+                {
+                },
+                onSetAsInactive = () =>  { },
+                onUnload = () =>  { },
+            },
+            new UsceneDef
+            {
+                name = "Menu",
+                onLoad = () =>  { },
+                onSetAsActive = () =>  { },
+                onSetAsInactive = () =>  { },
+                onUnload = () =>  { },
+            },
+            new UsceneDef
+            {
+                name = "Game",
+                onLoad = () =>  { },
+                onSetAsActive = () =>  { },
+                onSetAsInactive = () =>  { },
+                onUnload = () =>  { },
+            },
+        },
+        
+    };
+
+
+    private static UscenesConfig configProd = new UscenesConfig
+    {
+        enable = true,
+        uScenesList = new UsceneDef[]
+        {
+            new UsceneDef
+            {
+                name = "Game",
+            },
+        }
+    };
+
+}
