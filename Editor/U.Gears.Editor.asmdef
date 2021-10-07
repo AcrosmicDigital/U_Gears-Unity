@@ -1,0 +1,18 @@
+{
+    "name": "U.Gears.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:e9f25b9fcb3d9e94d90c10d3938ce2b7"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
