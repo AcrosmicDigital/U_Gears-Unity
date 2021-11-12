@@ -137,5 +137,45 @@ namespace U.Gears.ActionsOn
         }
 
 
+
+
+        public static GameObject OnCollisionEnter2D(this GameObject gameObject, ActionOnCollisionEnter2D.Properties p)
+        {
+            // Add the component
+            ActionOnCollisionEnter2D.AddComponent(gameObject, p);
+
+            // Return to fluent design
+            return gameObject;
+        }
+        public static GameObject OnTriggerEnter2D(this GameObject gameObject, ActionOnTriggerEnter2D.Properties p)
+        {
+            // Add the component
+            ActionOnTriggerEnter2D.AddComponent(gameObject, p);
+
+            // Return to fluent design
+            return gameObject;
+        }
+        public static GameObject OnOverlapCircleEnter2D(this GameObject gameObject, ActionOnOverlapCircleEnter2D.Properties p)
+        {
+            // Add the component
+            ActionOnOverlapCircleEnter2D.AddComponent(gameObject, p);
+
+            // Return to fluent design
+            return gameObject;
+        }
+
+
+
+
+        public static GameObject OnTime(this GameObject gameObject, ActionOnTime.Properties p)
+        {
+            // Add the component
+            ActionOnTime.AddComponent(gameObject, p);
+
+            // Return to fluent design
+            return gameObject;
+        }
+
+
     }
 }

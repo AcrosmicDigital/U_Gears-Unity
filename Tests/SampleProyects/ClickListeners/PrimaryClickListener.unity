@@ -168,7 +168,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   listenOverUI: 1
   listenOutsideScreen: 0
-  allowedClicks: 0
+  allowedClicks: 8
   OnClick:
     m_PersistentCalls:
       m_Calls:

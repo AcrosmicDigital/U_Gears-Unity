@@ -53,7 +53,7 @@ namespace U.Gears.ActionsOn
 
             c.enable = p.enable;
             c.iterations = p.iterations;
-            c.onFixedUpdate.AddListener(() => p.onFixedUpdate.Invoke());
+            c.onFixedUpdate.AddListener(() => p.onFixedUpdate?.Invoke());
 
             return c;
         }

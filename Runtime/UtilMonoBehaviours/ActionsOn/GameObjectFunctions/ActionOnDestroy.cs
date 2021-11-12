@@ -43,7 +43,7 @@ namespace U.Gears.ActionsOn
             var c = gameObject.AddComponent<ActionOnDestroy>();
 
             c.enable = p.enable;
-            c.onDestroy.AddListener(() => p.onDestroy.Invoke());
+            c.onDestroy.AddListener(() => p.onDestroy?.Invoke());
 
             return c;
         }

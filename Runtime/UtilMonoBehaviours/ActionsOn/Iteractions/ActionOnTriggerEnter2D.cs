@@ -17,15 +17,14 @@ namespace U.Gears.ActionsOn
             UnscaledDeltaTime,
         }
 
-        public string scriptName = "";
         public bool enable = true;
-        public LayerMask damageMask;
+        public LayerMask damageMask = ~0;
         public bool infinityCount = false;
         public int triggersToAction = 1; // Number of triggers to trigger an action
         public int totalActions = 1; // Number of times the action will be triggered
         public MinTimeMode minTimeMode = MinTimeMode.Disabled;
         public float minTime = 1f;
-        public UnityEvent<GameObject> onTriggerEnter;
+        public UnityEvent<Collider2D> onTriggerEnter;
 
         private int triggersCounted = 0;
         private int actionsCounted = 0;
@@ -56,11 +55,11 @@ namespace U.Gears.ActionsOn
                 {
                     try
                     {
-                        onTriggerEnter?.Invoke(gameObject);
+                        onTriggerEnter?.Invoke(collision);
                     }
                     catch (Exception e)
                     {
-                        Debug.LogError("OnDestroyEventImplementer: Error in UnityEvent, " + e);
+                        Debug.LogError("ActionOnTriggerEnter2D: Error in UnityEvent, " + e);
                     }
 
                     actionsCounted++;
@@ -68,6 +67,45 @@ namespace U.Gears.ActionsOn
                 }
             }
         }
+
+
+
+
+
+
+
+        public class Properties
+        {
+            public bool enable = true;
+            public LayerMask damageMask = ~0;
+            public bool infinityCount = false;
+            public int triggersToAction = 1; // Number of triggers to trigger an action
+            public int totalActions = 1; // Number of times the action will be triggered
+            public MinTimeMode minTimeMode = MinTimeMode.Disabled;
+            public float minTime = 1f;
+            public Action<Collider2D> onTriggerEnter;
+        }
+
+
+        public static ActionOnTriggerEnter2D AddComponent(GameObject gameObject, Properties p)
+        {
+            var c = gameObject.AddComponent<ActionOnTriggerEnter2D>();
+
+            c.enable = p.enable;
+            c.damageMask = p.damageMask;
+            c.infinityCount = p.infinityCount;
+            c.triggersToAction = p.triggersToAction;
+            c.totalActions = p.totalActions;
+            c.minTimeMode = p.minTimeMode;
+            c.minTime = p.minTime;
+            c.onTriggerEnter.AddListener((c) => p.onTriggerEnter?.Invoke(c));
+
+            return c;
+        }
+
+
+
+
 
 
     }

@@ -8,7 +8,7 @@ namespace U.Gears.Editor
 {
     [CanEditMultipleObjects]
     [CustomEditor(typeof(ActionOnTime))]
-    public class ActionOnTimeCustomInspector : UnityEditor.Editor
+    public class ActionOnTimeInspector : UnityEditor.Editor
     {
         public override void OnInspectorGUI()
         {

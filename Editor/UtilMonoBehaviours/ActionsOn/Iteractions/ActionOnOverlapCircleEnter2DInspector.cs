@@ -7,13 +7,13 @@ using U.Gears.ActionsOn;
 namespace U.Gears.Editor
 {
     [CanEditMultipleObjects]
-    [CustomEditor(typeof(ActionOnOverlapCircle))]
-    public class ActionOnOverlapCircleCustomInspector : UnityEditor.Editor
+    [CustomEditor(typeof(ActionOnOverlapCircleEnter2D))]
+    public class ActionOnOverlapCircleEnter2DInspector : UnityEditor.Editor
     {
         public override void OnInspectorGUI()
         {
 
-            ActionOnOverlapCircle c = (ActionOnOverlapCircle)target;
+            ActionOnOverlapCircleEnter2D c = (ActionOnOverlapCircleEnter2D)target;
 
             GUILayout.Space(8);
             EditorGUILayout.PropertyField(serializedObject.FindProperty("scriptName"), true);
@@ -32,7 +32,7 @@ namespace U.Gears.Editor
             GUILayout.Space(8);
             EditorGUILayout.PropertyField(serializedObject.FindProperty("minTimeMode"), true);
             EditorGUI.indentLevel++;
-            if (c.minTimeMode != ActionOnOverlapCircle.MinTimeMode.Disabled)
+            if (c.minTimeMode != ActionOnOverlapCircleEnter2D.MinTimeMode.Disabled)
                 EditorGUILayout.PropertyField(serializedObject.FindProperty("minTime"), new GUIContent("Time"), true);
             EditorGUI.indentLevel--;
 

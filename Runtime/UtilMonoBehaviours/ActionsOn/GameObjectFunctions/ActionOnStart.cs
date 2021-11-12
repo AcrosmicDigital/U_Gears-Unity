@@ -47,7 +47,7 @@ namespace U.Gears.ActionsOn
             var c = gameObject.AddComponent<ActionOnStart>();
 
             c.enable = p.enable;
-            c.onStart.AddListener(() => p.onStart.Invoke());
+            c.onStart.AddListener(() => p.onStart?.Invoke());
 
             return c;
         }
