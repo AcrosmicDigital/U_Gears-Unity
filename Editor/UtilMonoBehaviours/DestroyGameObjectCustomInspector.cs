@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-namespace U.Gears
+namespace U.Gears.Editor
 {
-
-#if UNITY_EDITOR
-
+    [CanEditMultipleObjects]
     [CustomEditor(typeof(DestroyGameObject))]
-    public class DestroyGameObjectCustomInspector : Editor
+    public class DestroyGameObjectCustomInspector : UnityEditor.Editor
     {
         public override void OnInspectorGUI()
         {
@@ -27,6 +25,4 @@ namespace U.Gears
 
         }
     }
-
-#endif
 }

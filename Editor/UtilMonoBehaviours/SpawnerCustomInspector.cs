@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-namespace U.Gears
+namespace U.Gears.Editor
 {
-
-#if UNITY_EDITOR
-
+    [CanEditMultipleObjects]
     [CustomEditor(typeof(Spawner))]
     //[CanEditMultipleObjects]
-    public class SpawnerCustomInspector : Editor
+    public class SpawnerCustomInspector : UnityEditor.Editor
     {
 
         public override void OnInspectorGUI()
@@ -57,6 +55,4 @@ namespace U.Gears
 
         }
     }
-
-#endif
 }

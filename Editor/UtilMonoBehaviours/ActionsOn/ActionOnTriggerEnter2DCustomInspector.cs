@@ -3,12 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-namespace U.Gears
+namespace U.Gears.Editor
 {
-#if UNITY_EDITOR
-
+    [CanEditMultipleObjects]
     [CustomEditor(typeof(ActionOnTriggerEnter2D))]
-    public class ActionOnTriggerEnter2DCustomInspector : Editor
+    public class ActionOnTriggerEnter2DCustomInspector : UnityEditor.Editor
     {
         public override void OnInspectorGUI()
         {
@@ -47,7 +46,6 @@ namespace U.Gears
 
         }
     }
-#endif
 }
 
 

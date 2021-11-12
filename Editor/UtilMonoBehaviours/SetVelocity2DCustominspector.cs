@@ -3,13 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-namespace U.Gears
+namespace U.Gears.Editor
 {
-
-#if UNITY_EDITOR
-
+    [CanEditMultipleObjects]
     [CustomEditor(typeof(SetVelocity2D))]
-    public class SetVelocity2DCustominspector : Editor
+    public class SetVelocity2DCustominspector : UnityEditor.Editor
     {
         public override void OnInspectorGUI()
         {
@@ -53,6 +51,4 @@ namespace U.Gears
 
         }
     }
-
-#endif
 }

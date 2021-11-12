@@ -8,23 +8,27 @@ namespace U.Gears
 {
     public class ActionOnStart : MonoBehaviour
     {
-        public string scriptName = "";
+
         public bool enable = true;
-        public UnityEvent<GameObject> onStart;
+        public UnityEvent onStart = new UnityEvent();
+
 
         private void Start()
         {
-            if (!enable)
-                return;
 
-            try
+            if (enable)
             {
-                onStart?.Invoke(gameObject);
+                try
+                {
+                    onStart?.Invoke();
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError("ActionOnStart: Error in UnityEvent, " + e);
+                }
             }
-            catch (Exception e)
-            {
-                Debug.LogError("OnDestroyEventImplementer: Error in UnityEvent, " + e);
-            }
+
+            Destroy(this);
 
         }
 
@@ -34,20 +38,19 @@ namespace U.Gears
         public class Properties
         {
             public bool enable = true;
-            public Action<GameObject> onStart;
+            public Action onStart;
         }
+
 
         public static ActionOnStart AddComponent(GameObject gameObject, Properties p)
         {
             var c = gameObject.AddComponent<ActionOnStart>();
 
             c.enable = p.enable;
-
-            var ev = new UnityEvent<GameObject>();
-            ev.AddListener(g => p.onStart?.Invoke(g));
-            c.onStart = ev;
+            c.onStart.AddListener(() => p.onStart.Invoke());
 
             return c;
         }
+
     }
 }

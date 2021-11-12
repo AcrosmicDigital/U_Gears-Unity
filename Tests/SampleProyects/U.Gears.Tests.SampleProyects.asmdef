@@ -1,0 +1,17 @@
+{
+    "name": "U.Gears.Tests.SampleProyects",
+    "rootNamespace": "",
+    "references": [
+        "GUID:e9f25b9fcb3d9e94d90c10d3938ce2b7",
+        "GUID:0b908bef046069a489d309fce5e7cd86"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -267,7 +267,7 @@ namespace U.Gears
 
             var tracker = ActionOnDestroy.AddComponent(clone, new ActionOnDestroy.Properties
             {
-                onDestroy = (g) => spawnedInScene = Umath.Min(spawnedInScene - 1, 0)
+                onDestroy = () => spawnedInScene = Umath.Min(spawnedInScene - 1, 0)
             });
 
             // Revisa si debe ser hijo de alguno
