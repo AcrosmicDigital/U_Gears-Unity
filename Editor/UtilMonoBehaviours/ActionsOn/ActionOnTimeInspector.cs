@@ -16,8 +16,6 @@ namespace U.Gears.Editor
             ActionOnTime c = (ActionOnTime)target;
 
             GUILayout.Space(8);
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("scriptName"), true);
-            GUILayout.Space(5);
             EditorGUILayout.PropertyField(serializedObject.FindProperty("playOnAwake"), true);
             EditorGUILayout.PropertyField(serializedObject.FindProperty("timeMode"), true);
             EditorGUILayout.PropertyField(serializedObject.FindProperty("betweenActions"), true);

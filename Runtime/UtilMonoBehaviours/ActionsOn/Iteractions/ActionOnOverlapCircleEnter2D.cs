@@ -22,7 +22,7 @@ namespace U.Gears.ActionsOn
         public int totalActions = 1; // Number of times the action will be triggered
         public MinTimeMode minTimeMode = MinTimeMode.Disabled;
         public float minTime = 1f;
-        public UnityEvent onOverlapCircle;
+        public UnityEvent onOverlapCircle = new UnityEvent();
 
         private int overlapsCounted = 0;
         private int actionsCounted = 0;

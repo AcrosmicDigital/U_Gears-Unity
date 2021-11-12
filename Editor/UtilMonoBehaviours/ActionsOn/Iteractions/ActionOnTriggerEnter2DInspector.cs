@@ -16,8 +16,6 @@ namespace U.Gears.Editor
             ActionOnTriggerEnter2D c = (ActionOnTriggerEnter2D)target;
 
             GUILayout.Space(8);
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("scriptName"), true);
-            GUILayout.Space(5);
             EditorGUILayout.PropertyField(serializedObject.FindProperty("enable"), true);
             if (c.enable)
             {

@@ -9,7 +9,6 @@ namespace U.Gears.ActionsOn
     public class ActionOnTime : MonoBehaviour
     {
 
-        public string scriptName = "";
         public bool playOnAwake = true;
         public TimeMode timeMode = TimeMode.DeltaTime; // Time between functions calls
         public IterateMode iterateMode = IterateMode.Loop;
@@ -18,7 +17,7 @@ namespace U.Gears.ActionsOn
         public float maxDuration = 2; // Time between functions calls
         public int minIterations = 2; // Time between functions calls
         public int maxIterations = 5; // Time between functions calls
-        public UnityEvent<GameObject> onTime;
+        public UnityEvent<GameObject> onTime = new UnityEvent<GameObject>();
 
 
         private bool isPaused = false;

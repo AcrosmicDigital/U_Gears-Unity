@@ -23,7 +23,7 @@ namespace U.Gears.ActionsOn
         public int totalActions = 1; // Number of times the action will be triggered
         public MinTimeMode minTimeMode = MinTimeMode.Disabled;
         public float minTime = 1f;
-        public UnityEvent<Collision2D> onCollisionEnter;
+        public UnityEvent<Collision2D> onCollisionEnter = new UnityEvent<Collision2D>();
 
         private int collisionsCounted = 0;
         private int actionsCounted = 0;
