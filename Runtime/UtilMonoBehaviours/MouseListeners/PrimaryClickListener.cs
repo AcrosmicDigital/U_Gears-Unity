@@ -117,7 +117,7 @@ namespace U.Gears.MouseListeners
             {
                 try
                 {
-                    OnClick.Invoke();
+                    OnClick?.Invoke();
                 }
                 catch (System.Exception e)
                 {
@@ -131,7 +131,7 @@ namespace U.Gears.MouseListeners
             {
                 try
                 {
-                    OnHold.Invoke();
+                    OnHold?.Invoke();
                 }
                 catch (System.Exception e)
                 {
