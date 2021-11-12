@@ -162,8 +162,8 @@ namespace U.Gears.MouseListeners
             c.listenOutsideScreen = p.listenOutsideScreen;
             c.allowedClicks = p.allowedClicks;
 
-            c.OnClick.AddListener(() => p.OnClick.Invoke());
-            c.OnHold.AddListener(() => p.OnHold.Invoke());
+            c.OnClick.AddListener(() => p.OnClick?.Invoke());
+            c.OnHold.AddListener(() => p.OnHold?.Invoke());
 
             return c;
         }
