@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 using UnityEngine.Events;
 
-namespace U.Gears
+namespace U.Gears.ActionsOn
 {
     public class ActionOnCollisionEnter2D : MonoBehaviour
     {

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace U.Gears
+namespace U.Gears.ActionsOn
 {
     public class ActionOnDestroy : MonoBehaviour
     {

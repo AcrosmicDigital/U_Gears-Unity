@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace U.Gears
+namespace U.Gears.ActionsOn
 {
     public class ActionOnTriggerEnter2D : MonoBehaviour
     {
