@@ -6,41 +6,41 @@ namespace U.Gears
 {
     public static partial class Umath
     {
-        #region  Distance betwwen Vectors 2
+        #region  Distance betwwen values , a-b
 
-        public static float DistanceFloat(float A, float B)
+        public static float Distance(this float A, float B)
         {
             return A - B;
         }
 
-        public static Vector2 DistanceVector2(Vector2 A, Vector2 B)
+        public static Vector2 Distance(this Vector2 A, Vector2 B)
         {
             return new Vector2(A.x - B.x, A.y - B.y);
         }
 
-        public static Vector3 DistanceVector3(Vector3 A, Vector3 B)
+        public static Vector3 Distance(this Vector3 A, Vector3 B)
         {
             return new Vector3(A.x - B.x, A.y - B.y, A.z - B.z);
         }
 
-        public static Vector4 DistanceVector4(Vector4 A, Vector4 B)
+        public static Vector4 Distance(this Vector4 A, Vector4 B)
         {
             return new Vector4(A.x - B.x, A.y - B.y, A.z - B.z, A.w - B.w);
         }
 
 
 
-        public static int DistanceInt(int A, int B)
+        public static int Distance(this int A, int B)
         {
             return A - B;
         }
 
-        public static Vector2Int DistanceVector2Int(Vector2Int A, Vector2Int B)
+        public static Vector2Int Distance(this Vector2Int A, Vector2Int B)
         {
             return new Vector2Int(A.x - B.x, A.y - B.y);
         }
 
-        public static Vector3Int DistanceVector3Int(Vector3Int A, Vector3Int B)
+        public static Vector3Int Distance(this Vector3Int A, Vector3Int B)
         {
             return new Vector3Int(A.x - B.x, A.y - B.y, A.z - B.z);
         }
@@ -49,7 +49,7 @@ namespace U.Gears
 
 
 
-        public static double DistanceDouble(double A, double B)
+        public static double Distance(this double A, double B)
         {
             return A - B;
         }

@@ -1,22 +1,5 @@
 using System;
 
-
-/// <summary>
-/// Creates ids based on Guids
-/// IdGuid - Custon C# Guid
-/// IdLong - 19 chars UInt64 Id
-/// IdShort - 10 chars UInt32 Id
-/// </summary>
-/// <example>
-/// 
-/// using Sacrum.Functions.Id;
-/// 
-/// Debug.Log("ID: " + Id.NewIdLong().ToString().Length);
-/// Id.NewIdLong();
-/// Id.NewIdShort();
-/// 
-/// </example>
-
 namespace U.Gears
 {
 
@@ -26,7 +9,7 @@ namespace U.Gears
         /*
          * Creates a new Guid
          */
-        public static Guid NewIdGuid()
+        public static Guid NewGuid()
         {
             return Guid.NewGuid();
         }
@@ -34,33 +17,62 @@ namespace U.Gears
         /*
          * Creates a new 19 chars UInt64 Id
          */
-        public static UInt64 NewIdLong()
+        public static string NewIdLong()
         {
 
-            byte[] buffer = NewIdGuid().ToByteArray();
+            byte[] buffer = NewGuid().ToByteArray();
 
-            return BitConverter.ToUInt64(buffer, 0);
+            var sid = BitConverter.ToUInt64(buffer, 0).ToString();
+
+            if (sid.Length < 19)
+            {
+                for (int i = 0; i < 19 - sid.Length; i++)
+                {
+                    sid = sid + "0";
+                }
+            }
+
+            if (sid.Length > 19)
+            {
+                for (int i = 0; i < sid.Length - 19; i++)
+                {
+                    sid = sid.TrimEnd(sid[sid.Length - 1]);
+                }
+            }
+
+            return sid;
 
         }
 
         /*
          * Creates a new 10 chars UInt32 Id
          */
-        public static UInt32 NewIdShort()
+        public static string NewIdShort()
         {
 
-            byte[] buffer = NewIdGuid().ToByteArray();
+            byte[] buffer = NewGuid().ToByteArray();
 
-            UInt32 num = BitConverter.ToUInt32(buffer, 0);
+            var sid = BitConverter.ToUInt32(buffer, 0).ToString();
 
-            if (num < 1000000000)
-                num += 1000000000;
+            if (sid.Length < 10)
+            {
+                for (int i = 0; i < 10 - sid.Length; i++)
+                {
+                    sid = sid + "0";
+                }
+            }
 
-            return num;
+            if (sid.Length > 10)
+            {
+                for (int i = 0; i < sid.Length - 10; i++)
+                {
+                    sid = sid.TrimEnd(sid[sid.Length - 1]);
+                }
+            }
+
+            return sid;
 
         }
 
     }
-
-
 }

@@ -9,6 +9,7 @@ namespace U.Gears
     public static partial class Ucollections
     {
         
+        // Shuffle a Ienumerable, returning a Ienumerable
         public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> collection)
         {
             // Create a random number generator
@@ -19,6 +20,7 @@ namespace U.Gears
                 .Select(x => x.item);
         }
 
+        // Return a new queue
         public static Queue<T> ToQueue<T>(this IEnumerable<T> collection)
         {
             // Create the queue
@@ -32,6 +34,7 @@ namespace U.Gears
             return queue;
         }
 
+        // Return a new stack
         public static Stack<T> ToStack<T>(this IEnumerable<T> collection)
         {
             // Create the queue

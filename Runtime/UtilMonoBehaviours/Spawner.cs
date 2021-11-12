@@ -50,7 +50,7 @@ namespace U.Gears
 
             if (spawnPoints != null) spawnPointsList = spawnPoints.Where(s => s != null).Select(s => new PositionKeeper(s)).ToList();
             if (spawnTransforms != null) spawnTransformsList = spawnTransforms.Where(t => t != null).Select(t => new PositionKeeper(t)).ToList();
-            if (spawnInChildsOf != null) spawnInChildsOfList = spawnInChildsOf.transform.GetChilds().Select(t => new PositionKeeper(t)).ToList();
+            if (spawnInChildsOf != null) spawnInChildsOfList = spawnInChildsOf.GetChildsTransforms().Select(t => new PositionKeeper(t)).ToList();
 
             spawnsPositionsList = spawnPointsList.Union(spawnTransformsList).Union(spawnInChildsOfList).ToList();
 
@@ -267,7 +267,7 @@ namespace U.Gears
 
             var tracker = ActionOnDestroy.AddComponent(clone, new ActionOnDestroy.Properties
             {
-                onDestroy = (g) => spawnedInScene = Umath.MinInt(spawnedInScene - 1, 0)
+                onDestroy = (g) => spawnedInScene = Umath.Min(spawnedInScene - 1, 0)
             });
 
             // Revisa si debe ser hijo de alguno

@@ -6,19 +6,38 @@ namespace U.Gears
 {
     public static partial class UgameObject
     {
-        public static Transform[] GetChilds(this Transform transform)
+
+        // Return an array with the childs transforms
+        public static Transform[] GetChildsTransforms(this GameObject gameObject)
         {
             var childsList = new List<Transform>();
 
-            foreach (Transform child in transform)  // Cant use Linq here
+            foreach (Transform childTransform in gameObject.transform)  // Cant use Linq here
             {
-                if (child == null)
+                if (childTransform == null)
                     continue;
 
-                childsList.Add(child);
+                childsList.Add(childTransform);
             }
 
             return childsList.ToArray();
         }
+
+        // Return an array with the childs gameobjects
+        public static GameObject[] GetChilds(this GameObject gameObject)
+        {
+            var childsList = new List<GameObject>();
+
+            foreach (Transform child in gameObject.transform)  // Cant use Linq here
+            {
+                if (child == null)
+                    continue;
+
+                childsList.Add(child.gameObject);
+            }
+
+            return childsList.ToArray();
+        }
+
     }
 }

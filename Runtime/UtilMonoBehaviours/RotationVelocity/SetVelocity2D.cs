@@ -31,20 +31,20 @@ namespace U.Gears
         private void FixedUpdate()
         {
             Debug.Log("Velocity is: " + rigidbdy2D.velocity);
-            Debug.Log("Max: " + rigidbdy2D.velocity.x.MaxFloat(velocityYmax));
+            Debug.Log("Max: " + rigidbdy2D.velocity.x.Max(velocityYmax));
 
             if (setVelocityXmin)
-                rigidbdy2D.velocity = new Vector2(rigidbdy2D.velocity.x.MinFloat(velocityXmin), rigidbdy2D.velocity.y);
+                rigidbdy2D.velocity = new Vector2(rigidbdy2D.velocity.x.Min(velocityXmin), rigidbdy2D.velocity.y);
 
             if (setVelocityXmax)
-                rigidbdy2D.velocity = new Vector2(rigidbdy2D.velocity.x.MaxFloat(velocityXmax), rigidbdy2D.velocity.y);
+                rigidbdy2D.velocity = new Vector2(rigidbdy2D.velocity.x.Max(velocityXmax), rigidbdy2D.velocity.y);
 
 
             if (setVelocityYmin)
-                rigidbdy2D.velocity = new Vector2(rigidbdy2D.velocity.x, rigidbdy2D.velocity.y.MinFloat(velocityYmin));
+                rigidbdy2D.velocity = new Vector2(rigidbdy2D.velocity.x, rigidbdy2D.velocity.y.Min(velocityYmin));
 
             if (setVelocityYmax)
-                rigidbdy2D.velocity = new Vector2(rigidbdy2D.velocity.x, rigidbdy2D.velocity.y.MaxFloat(velocityYmax));
+                rigidbdy2D.velocity = new Vector2(rigidbdy2D.velocity.x, rigidbdy2D.velocity.y.Max(velocityYmax));
 
         }
     }

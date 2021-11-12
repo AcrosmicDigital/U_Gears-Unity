@@ -7,8 +7,7 @@ namespace U.Gears
     public static partial class Umath
     {
 
-        #region Unitarize => num/abs(num) = -1,0,-1   --> int, float, Vector2, Vector3
-
+        #region Unitarize => num/abs(num) = -1,0,1   --> int, float, Vector2, Vector3
 
         public static float UnitarizeFloat(float num)
         {
