@@ -1,0 +1,14 @@
+using UnityEngine;
+
+public static partial class Controller  // Dir: Assets/Scripts/Controllers/GameController.cs
+{
+    public static partial class Game
+    {
+
+        public static void ReadyToStart()
+        {
+
+        }
+
+    }
+}
