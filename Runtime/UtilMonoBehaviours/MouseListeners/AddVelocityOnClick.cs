@@ -184,5 +184,43 @@ namespace U.Gears.MouseListeners
         }
 
         #endregion
+
+
+
+
+        public class Properties
+        {
+            public Vector2 onClickSpeed = new Vector2(1, 1);
+            public EffectOnObject effectOnObject = EffectOnObject.ATTRACT;
+            public float timeBetweenClicks = .5f;
+            public float clickedEffectTime = .2f;
+            public bool considerXDistance = true;
+            public bool considerYDistance = true;
+            public bool denyXLeft = false;
+            public bool denyXRight = false;
+            public bool denyYUp = false;
+            public bool denyYDown = false;
+        }
+
+
+        public static AddVelocityOnClick AddComponent(GameObject gameObject, Properties p)
+        {
+            var c = gameObject.AddComponent<AddVelocityOnClick>();
+
+            c.onClickSpeed = p.onClickSpeed;
+            c.effectOnObject = p.effectOnObject;
+            c.timeBetweenClicks = p.timeBetweenClicks;
+            c.clickedEffectTime = p.clickedEffectTime;
+            c.considerXDistance = p.considerXDistance;
+            c.considerYDistance = p.considerYDistance;
+            c.denyXLeft = p.denyXLeft;
+            c.denyXRight = p.denyXRight;
+            c.denyYUp = p.denyYUp;
+            c.denyYDown = p.denyYDown;
+
+            return c;
+        }
+
+
     }
 }
