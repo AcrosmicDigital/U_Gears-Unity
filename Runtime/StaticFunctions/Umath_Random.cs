@@ -9,7 +9,7 @@ namespace U.Gears
 
         public static int RandomInt(int min, int max)
         {
-            return UnityEngine.Random.Range(min, max+1);
+            return UnityEngine.Random.Range(min, max + 1);
         }
 
         public static float RandomFloat(float min, float max)
@@ -40,6 +40,15 @@ namespace U.Gears
         public static Vector3Int RandomVector3Int(Vector3Int min, Vector3Int max)
         {
             return new Vector3Int(RandomInt(min.x, max.x), RandomInt(min.y, max.y), RandomInt(min.z, max.z));
+        }
+
+        public static bool RandomBool()
+        {
+            var n = UnityEngine.Random.Range(0, 2);
+
+            if (n == 0) return true;
+            else return false;
+
         }
 
     }
