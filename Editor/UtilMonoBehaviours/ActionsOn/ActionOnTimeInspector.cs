@@ -59,7 +59,7 @@ namespace U.Gears.Editor
             
 
             GUILayout.Space(8);
-            EditorGUILayout.PropertyField(serializedObject.FindProperty("onTime"), true);
+            EditorGUILayout.PropertyField(serializedObject.FindProperty("onTimeEvent"), true);
 
             serializedObject.ApplyModifiedProperties();
 

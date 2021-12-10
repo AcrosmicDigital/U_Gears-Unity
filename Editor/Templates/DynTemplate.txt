@@ -1,0 +1,19 @@
+public static partial class Dyn  // Dir: Assets/Scripts/Dyn/*.cs
+{
+    public static partial class #SCRIPTNAME#
+    {
+        private static int value = 0;
+
+        public static int Get()
+        {
+            return value;
+        }
+
+        public static void Add(int val)
+        {
+            value += val;
+        }
+        
+
+    }
+}

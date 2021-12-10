@@ -12,8 +12,9 @@ namespace U.Gears
     {
         public float duration = 2;
         public bool playOnAwake = true;
-        public TimeMode timeMode = TimeMode.UnscaledDeltaTime;
+        public TimeMode timeMode = TimeMode.DeltaTime;
         public bool allowUnexpectedEnd = true;  // Allow to be erased without throwing exception
+        public bool loop = true;
         [Header("Events")]
         public UnityEvent OnComplete; // Called each time timmer reach the total time
 
@@ -52,10 +53,13 @@ namespace U.Gears
             if (time >= duration)
             {
                 // Se pone como completado
-                isCompleted = true; 
+                isCompleted = true;
 
                 // OncompleteEvent
                 try { OnComplete?.Invoke(); } catch (Exception e) { Debug.LogError("Error in OnComplete Event, " + e); }
+
+                // If loop Restart
+                if (loop) Restart();
             }
         }
 
@@ -115,7 +119,7 @@ namespace U.Gears
 
         public void Restart(float duration)
         {
-            if(duration <= 0)
+            if (duration <= 0)
                 throw new ArgumentException("Duration must be grater than 0");
 
             this.duration = duration;
@@ -160,8 +164,9 @@ namespace U.Gears
         {
             public float duration = 2;
             public bool playOnAwake = true;
-            public TimeMode timeMode = TimeMode.UnscaledDeltaTime;
+            public TimeMode timeMode = TimeMode.DeltaTime;
             public bool allowUnexpectedEnd = true;  // Allow to be erased without throwing exception
+            public bool loop = true;
             public Action OnComplete; // Called each time timmer reach the total time
         }
 
@@ -183,6 +188,7 @@ namespace U.Gears
             c.playOnAwake = p.playOnAwake;
             c.timeMode = p.timeMode;
             c.allowUnexpectedEnd = p.allowUnexpectedEnd;
+            c.loop = p.loop;
             c.OnComplete = ev;
 
             return c;

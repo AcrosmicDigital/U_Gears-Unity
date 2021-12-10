@@ -1,0 +1,27 @@
+using UnityEngine;
+
+public static partial class Env  // Path: Assets/Scripts/Env/Resources.cs
+{
+    public static partial class Resources
+    {
+        
+        public static partial class Sprites
+        {
+            public static Sprite Square_x128 => UnityEngine.Resources.Load<Sprite>("Square_x128");  // Path: Assets/Sprites/Shapes/Resources/Square_x128
+
+        }
+
+        public static partial class Colors
+        {
+            //public static Color Transparent => new Color(1f, 1f, 1f, 1f);
+
+        }
+
+        public static partial class Fonts
+        {
+            //public static Font Candara => UnityEngine.Resources.Load<Font>("Candara");  // Path: Assets/Fonts/Candara
+
+        }
+
+    }
+}

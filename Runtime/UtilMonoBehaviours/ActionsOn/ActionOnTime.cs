@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -17,7 +15,7 @@ namespace U.Gears.ActionsOn
         public float maxDuration = 2; // Time between functions calls
         public int minIterations = 2; // Time between functions calls
         public int maxIterations = 5; // Time between functions calls
-        public UnityEvent<GameObject> onTime = new UnityEvent<GameObject>();
+        public UnityEvent onTimeEvent = new UnityEvent();
 
 
         private bool isPaused = false;
@@ -30,7 +28,7 @@ namespace U.Gears.ActionsOn
 
         private void Start()
         {
-            
+
             if (!pausedBeforeStart)
                 isPaused = !playOnAwake;
 
@@ -77,7 +75,7 @@ namespace U.Gears.ActionsOn
                 // Execute the delegates
                 try
                 {
-                    onTime?.Invoke(gameObject);
+                    onTimeEvent?.Invoke();
                 }
                 catch (Exception e)
                 {
@@ -90,7 +88,7 @@ namespace U.Gears.ActionsOn
                 time += Time.deltaTime;
             else
                 time += Time.unscaledDeltaTime;
-          
+
         }
 
 
@@ -155,7 +153,7 @@ namespace U.Gears.ActionsOn
             public float maxDuration = 2; // Time between functions calls
             public int minIterations = 2; // Time between functions calls
             public int maxIterations = 5; // Time between functions calls
-            public UnityEvent<GameObject> onTime;
+            public Action onTimeAction;
         }
 
 
@@ -192,11 +190,10 @@ namespace U.Gears.ActionsOn
             c.minIterations = p.minIterations;
             c.maxIterations = p.maxIterations;
 
-            var ev = new UnityEvent<GameObject>();
-            ev.AddListener(g => p.onTime?.Invoke(g));
-            c.onTime = ev;
+            c.onTimeEvent.AddListener(() => p.onTimeAction?.Invoke());
 
             return c;
+
         }
 
 

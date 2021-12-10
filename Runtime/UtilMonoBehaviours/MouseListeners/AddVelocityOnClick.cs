@@ -81,10 +81,12 @@ namespace U.Gears.MouseListeners
             timeterBetweenClicks = FastTimer.AddComponent(gameObject, new FastTimer.Properties
             {
                 duration = timeBetweenClicks,
+                loop = false,
             });
             timeterInvertTime = FastTimer.AddComponent(gameObject, new FastTimer.Properties
             {
                 duration = clickedEffectTime,
+                loop = false,
             });
 
         }
