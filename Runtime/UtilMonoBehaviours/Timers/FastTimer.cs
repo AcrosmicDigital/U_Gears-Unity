@@ -20,10 +20,13 @@ namespace U.Gears
 
 
         public bool IsCompleted => isCompleted;
+        public bool IsWorking => isWorking;
+        public float CurrentTime => time;
 
 
         private bool isPaused = false;
         private bool isCompleted = false;
+        private bool isWorking = false;
         private float time = 0;  // Time elapsed
         private bool pausedBeforeStart = false;
         private TaskCompletionSource<bool> tks = new TaskCompletionSource<bool>();  // Task to wait for the animation
@@ -37,12 +40,14 @@ namespace U.Gears
 
         void Update()
         {
+            isWorking = false;
 
             // When is paused or stack is empty return
             if (isPaused || isCompleted)
                 return;
 
             // Add the delta time or unscaled time
+            isWorking = true;
             if (timeMode == TimeMode.DeltaTime)
                 time += Time.deltaTime;
             else
