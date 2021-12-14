@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor;
+using System;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
 
 namespace U.Gears.MouseListeners
 {
-    public class PrimaryClickListener : MonoBehaviour
+    public class PrimaryClickInTriggerListener : MonoBehaviour
     {
 
         #region PROPS-INSPECTOR
@@ -17,6 +14,8 @@ namespace U.Gears.MouseListeners
         public bool listenOverUI = true;
         public bool listenOutsideScreen = false;
         public int allowedClicks = 0;  // 0 or less is infinite, When is completed, will destroy the object
+        [InspectorName("Collider")] public Collider2D cl;
+        [Space(10)]
 
         public UnityEvent OnClick = new UnityEvent();
         public UnityEvent OnHold = new UnityEvent();
@@ -31,7 +30,7 @@ namespace U.Gears.MouseListeners
 
         // CODE PROPERTIES
 
-        [HideInInspector] public bool isInside { get; private set; }  // True if is inside screen
+        [HideInInspector] public bool isInsideScreen { get; private set; }  // True if is inside screen
         [HideInInspector] public bool isHold { get; private set; } // True while mouse button is down
         [HideInInspector] public Vector2 currentMousePoss { get; private set; }
         [HideInInspector] public Vector2 lastClickPoss { get; private set; }
@@ -41,6 +40,12 @@ namespace U.Gears.MouseListeners
 
         private int clickCounter = 0;
 
+
+        private void Start()
+        {
+            if (cl == null) throw new System.ArgumentNullException("PrmClkInsideTriggerListener: needs a collider as trigger");
+            cl.isTrigger = true;
+        }
 
 
         // Update is called once per frame
@@ -52,18 +57,37 @@ namespace U.Gears.MouseListeners
 
 
 
+            // If no collider return
+            if (cl == null) return;
+
             // Guarda la posicion del mouse
             Vector2 mousePossInScren = Input.mousePosition;
 
 
             // CHECL - if mouse in in screen or return and not update anything
             Rect screenRect = new Rect(0, 0, Screen.width, Screen.height);
-            isInside = screenRect.Contains(mousePossInScren);
-            if (!isInside && !listenOutsideScreen) return;
+            isInsideScreen = screenRect.Contains(mousePossInScren);
+            if (!isInsideScreen && !listenOutsideScreen) return;
 
 
-            // UPDATE MOUSE POSITION
-            currentMousePoss = Camera.main.ScreenToWorldPoint(mousePossInScren);
+            // Convert to world position
+            var mousePossInWorld = Camera.main.ScreenToWorldPoint(mousePossInScren);
+
+
+            // Check if is inside collider
+            var isInsideCollider = false;
+            foreach (Collider2D colider in Physics2D.OverlapPointAll(mousePossInWorld))
+            {
+                if (colider == cl) isInsideCollider = true;
+            }
+            if (!isInsideCollider) return;
+
+
+            // UPDATE MOUSE POSITION only if is inside
+            currentMousePoss = mousePossInWorld;
+
+
+
 
 
             // Si hay botones de mouse apretados y no touches
@@ -144,19 +168,21 @@ namespace U.Gears.MouseListeners
             public bool listenOverUI = true;
             public bool listenOutsideScreen = false;
             public int allowedClicks = 0;
+            public Collider2D collider;
 
             public Action OnClick;
             public Action OnHold;
         }
 
 
-        public static PrimaryClickListener AddComponent(GameObject gameObject, Properties p)
+        public static PrimaryClickInTriggerListener AddComponent(GameObject gameObject, Properties p)
         {
-            var c = gameObject.AddComponent<PrimaryClickListener>();
+            var c = gameObject.AddComponent<PrimaryClickInTriggerListener>();
 
             c.listenOverUI = p.listenOverUI;
             c.listenOutsideScreen = p.listenOutsideScreen;
             c.allowedClicks = p.allowedClicks;
+            c.cl = p.collider;
 
             c.OnClick.AddListener(() => p.OnClick?.Invoke());
             c.OnHold.AddListener(() => p.OnHold?.Invoke());
@@ -166,5 +192,4 @@ namespace U.Gears.MouseListeners
 
 
     }
-
 }
