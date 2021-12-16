@@ -4,6 +4,7 @@ using NUnit.Framework;
 using UnityEngine;
 using UnityEngine.TestTools;
 using U.Gears;
+using U.Gears.Math;
 
 
 public class Umath_Random
