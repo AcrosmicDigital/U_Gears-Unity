@@ -1,9 +1,0 @@
-public static partial class Env  // Dir: Assets/Scripts/Env/Tags.cs
-{
-    public static partial class Tags
-    {
-        //public static string _IntroSceneSquare => "_IntroSceneSquare";
-        //public static string _AnimPlanet => "_AnimPlanet";
-
-    }
-}
