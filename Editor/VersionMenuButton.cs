@@ -6,7 +6,7 @@ namespace U.Gears.Editor
     public class VersionMenuButton : EditorWindow
     {
 
-        [MenuItem("U/Gears/Version")]
+        [MenuItem("Universal/Gears/Version")]
         public static void PrintVersion()
         {
 
