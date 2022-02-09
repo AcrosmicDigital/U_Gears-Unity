@@ -6,9 +6,9 @@ namespace U.Gears.Editor
     public class CreateEnvTagsFileMenuButton : EditorWindow
     {
 
-        #region Tags File
+        #region File
         private static string FolderName => "/Scripts/Env/";
-        private static string FileName => "Tags.cs";
+        private static string FileName => "Tags.env.cs";
         private readonly static string[] file =
         {
             "",
@@ -21,7 +21,7 @@ namespace U.Gears.Editor
             "    }",
             "}",
         };
-        #endregion Tags File
+        #endregion File
 
 
 

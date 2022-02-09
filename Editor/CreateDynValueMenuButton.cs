@@ -6,9 +6,10 @@ namespace U.Gears.Editor
     public class CreateDynValueMenuButton : EditorWindow
     {
 
-        #region DynValue File
-        private static string FolderName => "/Scripts/Dyn/";
-        private static string DefaultFileName => "NewDynValue";
+        #region File
+        private static string DefaultFolderName => "/Scripts/Dyn/";
+        private static string DefaultFileName => "New";
+        private static string CustomExtension => "dyn";
         static string[] file(string fileName) => new string[]
         {
             "",
@@ -36,7 +37,7 @@ namespace U.Gears.Editor
             "    }",
             "}",
         };
-        #endregion DynValue File
+        #endregion File
 
 
 
@@ -48,7 +49,7 @@ namespace U.Gears.Editor
         {
 
             // Create files
-            CreateFileWithSaveFilePanelForceLocation(FolderName, DefaultFileName, file, FormatLog);
+            CreateFileWithSaveFilePanelAndCustomExtension(DefaultFolderName, DefaultFileName, file, FormatLog, CustomExtension);
 
             // Compile
             AssetDatabase.Refresh();

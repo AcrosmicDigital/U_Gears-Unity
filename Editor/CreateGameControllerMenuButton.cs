@@ -6,7 +6,7 @@ namespace U.Gears.Editor
     public class CreateGameControllerMenuButton : EditorWindow
     {
 
-        #region GameController File
+        #region File
         private static string FolderName => "/Scripts/Controllers/";
         private static string FileName => "Game.controller.cs";
         private readonly static string[] file =
@@ -64,7 +64,7 @@ namespace U.Gears.Editor
             "    }",
             "}",
         };
-        #endregion GameController File
+        #endregion File
 
 
 
