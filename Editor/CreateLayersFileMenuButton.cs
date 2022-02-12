@@ -59,7 +59,7 @@ namespace U.Gears.Editor
         private static string FormatLog(string text) => "UniversalGears: " + text;
 
 
-        [MenuItem("Universal/Gears/Create/Render Layers Desc")]
+        [MenuItem("Universal/Gears/Create/Extras/Render Layers Desc")]
         public static void ShowWindow()
         {
 

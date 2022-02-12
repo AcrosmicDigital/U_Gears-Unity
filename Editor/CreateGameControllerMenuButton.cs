@@ -71,7 +71,7 @@ namespace U.Gears.Editor
         private static string FormatLog(string text) => "UniversalGears: " + text;
 
 
-        [MenuItem("Universal/Gears/Create/Game Controller")]
+        [MenuItem("Universal/Gears/Create/Controllers/Game Controller")]
         public static void ShowWindow()
         {
 
