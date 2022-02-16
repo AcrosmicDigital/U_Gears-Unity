@@ -41,16 +41,30 @@ namespace U.Gears.Math
         #endregion Distance betwwen values , a-b
 
 
+        #region Set . Change OnlyOne member of the Vector
 
-        #region Operate vectors , operation apply to all members of the vector
+        public static Vector2 SetX(this Vector2 v, float x) => new Vector2(x, v.y);
+        public static Vector2 SetY(this Vector2 v, float y) => new Vector2(v.x, y);
+        public static Vector3 SetX(this Vector3 v, float x) => new Vector3(x, v.y, v.z);
+        public static Vector3 SetY(this Vector3 v, float y) => new Vector3(v.x, y, v.z);
+        public static Vector3 SetZ(this Vector3 v, float z) => new Vector3(v.x, v.y, z);
+        public static Vector3 SetXY(this Vector3 v, float x, float y) => new Vector3(x, y, v.z);
+        public static Vector3 SetXZ(this Vector3 v, float x, float z) => new Vector3(x, v.y, z);
+        public static Vector3 SetYZ(this Vector3 v, float y, float z) => new Vector3(v.x, y, z);
 
-        public static Vector2 Operate(this Vector2 vec, Func<float,float> operation)
-        {
-            return new Vector2(operation(vec.x), operation(vec.y));
-        }
 
+        public static Vector2 Opp(this Vector2 v, Func<float, float> vOpp) => new Vector2(vOpp(v.x), vOpp(v.y));
+        public static Vector2 OppX(this Vector2 v, Func<float, float> xOpp) => new Vector2(xOpp(v.x), v.y);
+        public static Vector2 OppY(this Vector2 v, Func<float, float> yOpp) => new Vector2(v.x, yOpp(v.y));
+        public static Vector3 Opp(this Vector3 v, Func<float, float> vOpp) => new Vector3(vOpp(v.x), vOpp(v.y), vOpp(v.z));
+        public static Vector3 OppX(this Vector3 v, Func<float, float> xOpp) => new Vector3(xOpp(v.x), v.y, v.z);
+        public static Vector3 OppY(this Vector3 v, Func<float, float> yOpp) => new Vector3(v.x, yOpp(v.y), v.z);
+        public static Vector3 OppZ(this Vector3 v, Func<float, float> zOpp) => new Vector3(v.x, v.y, zOpp(v.z));
+        public static Vector3 OppXY(this Vector3 v, Func<float, float> xOpp, Func<float, float> yOpp) => new Vector3(xOpp(v.x), yOpp(v.y), v.z);
+        public static Vector3 OppXZ(this Vector3 v, Func<float, float> xOpp, Func<float, float> zOpp) => new Vector3(xOpp(v.x), v.y, zOpp(v.z));
+        public static Vector3 OppYZ(this Vector3 v, Func<float, float> yOpp, Func<float, float> zOpp) => new Vector3(v.x, yOpp(v.y), zOpp(v.z));
 
-        #endregion Operate vectors
+        #endregion Set
 
     }
 }
