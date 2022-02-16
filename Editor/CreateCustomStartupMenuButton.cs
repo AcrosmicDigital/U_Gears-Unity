@@ -3,30 +3,25 @@ using static U.Gears.Editor.UE;
 
 namespace U.Gears.Editor
 {
-    public class CreateCustomControllerMenuButton : EditorWindow
+    public class CreateCustomStartupMenuButton : EditorWindow
     {
 
         #region File
-        private static string DefaultFolderName => "/Scripts/Control/";
-        private static string DefaultFileName => "New";
-        private static string CustomExtension => "controller";
+        private static string DefaultFolderName => "/Scripts/Control/Startup/";
+        private static string DefaultFileName => "NewStartup";
+        private static string CustomExtension => "startup";
         static string[] file(string fileName) => new string[]
         {
-            "using System;",
             "using UnityEngine;",
             "",
-            "public static partial class Control",
+            "public static partial class "+fileName+"",
             "{",
-            "    public static partial class "+fileName+"",
+            "    [RuntimeInitializeOnLoadMethod]",
+            "    public static void Startup()",
             "    {",
             "",
-            "        public static void ControlFunction()",
-            "        {",
-            "            Debug.Log("+quote+""+fileName+"Controller: ControlFunction"+quote+");",
-            "            // ...",
-            "",
-            "",
-            "        }",
+            "        // Code here",
+            "        // ...",
             "",
             "    }",
             "}",
@@ -38,7 +33,7 @@ namespace U.Gears.Editor
         private static string FormatLog(string text) => "UniversalGears: " + text;
 
 
-        [MenuItem("Universal/Gears/Create/Control/Custom Controller")]
+        [MenuItem("Universal/Gears/Create/Control/Startup")]
         public static void ShowWindow()
         {
 

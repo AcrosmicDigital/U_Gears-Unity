@@ -7,7 +7,7 @@ namespace U.Gears.Editor
     {
 
         #region File
-        private static string DefaultFolderName => "/Scripts/Dyn/";
+        private static string DefaultFolderName => "/Scripts/Env/Dyn/";
         private static string DefaultFileName => "New";
         private static string CustomExtension => "dyn";
         static string[] file(string fileName) => new string[]

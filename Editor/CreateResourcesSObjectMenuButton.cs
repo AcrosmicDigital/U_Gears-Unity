@@ -7,7 +7,7 @@ namespace U.Gears.Editor
     {
 
         #region File
-        private static string DefaultFolderName => "/Resources/";
+        private static string DefaultFolderName => "/Scripts/ResourcesClasses/";
         private static string DefaultFileName => "NewCustomResources";
         static string[] file(string fileName) => new string[]
         {
@@ -27,7 +27,7 @@ namespace U.Gears.Editor
         private static string FormatLog(string text) => "UniversalGears: " + text;
 
 
-        [MenuItem("Universal/Gears/Create/Resources ScrObj")]
+        [MenuItem("Universal/Gears/Create/Resources Class")]
         public static void ShowWindow()
         {
 

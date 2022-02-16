@@ -7,7 +7,7 @@ namespace U.Gears.Editor
     {
 
         #region File
-        private static string FolderName => "/Scripts/Controllers/";
+        private static string FolderName => "/Scripts/Control/";
         private static string FileName => "Game.controller.cs";
         private readonly static string[] file =
         {
@@ -71,7 +71,7 @@ namespace U.Gears.Editor
         private static string FormatLog(string text) => "UniversalGears: " + text;
 
 
-        [MenuItem("Universal/Gears/Create/Controllers/Game Controller")]
+        [MenuItem("Universal/Gears/Create/Control/Game Controller")]
         public static void ShowWindow()
         {
 
