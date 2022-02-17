@@ -77,9 +77,6 @@ namespace U.Gears.Timers
 
             isCompleted = true;
 
-            // OncompleteEvent
-            try { OnComplete?.Invoke(); } catch (Exception e) { Debug.LogError("Error in OnComplete Event, " + e); }
-
             // Set error or resut if is allowed unexpected and
             if (!allowUnexpectedEnd)
             {
@@ -112,7 +109,7 @@ namespace U.Gears.Timers
         public void Restart()
         {
 
-            isPaused = !playOnAwake;
+            isPaused = false;
             isCompleted = false;
             time = 0;
             tks = new TaskCompletionSource<bool>();
