@@ -56,6 +56,7 @@ namespace U.Gears.Math
         public static Vector2 Opp(this Vector2 v, Func<float, float> vOpp) => new Vector2(vOpp(v.x), vOpp(v.y));
         public static Vector2 OppX(this Vector2 v, Func<float, float> xOpp) => new Vector2(xOpp(v.x), v.y);
         public static Vector2 OppY(this Vector2 v, Func<float, float> yOpp) => new Vector2(v.x, yOpp(v.y));
+        public static Vector2 OppXY(this Vector2 v, Func<float, float> xOpp, Func<float, float> yOpp) => new Vector2(xOpp(v.x), yOpp(v.y));
         public static Vector3 Opp(this Vector3 v, Func<float, float> vOpp) => new Vector3(vOpp(v.x), vOpp(v.y), vOpp(v.z));
         public static Vector3 OppX(this Vector3 v, Func<float, float> xOpp) => new Vector3(xOpp(v.x), v.y, v.z);
         public static Vector3 OppY(this Vector3 v, Func<float, float> yOpp) => new Vector3(v.x, yOpp(v.y), v.z);
@@ -63,6 +64,7 @@ namespace U.Gears.Math
         public static Vector3 OppXY(this Vector3 v, Func<float, float> xOpp, Func<float, float> yOpp) => new Vector3(xOpp(v.x), yOpp(v.y), v.z);
         public static Vector3 OppXZ(this Vector3 v, Func<float, float> xOpp, Func<float, float> zOpp) => new Vector3(xOpp(v.x), v.y, zOpp(v.z));
         public static Vector3 OppYZ(this Vector3 v, Func<float, float> yOpp, Func<float, float> zOpp) => new Vector3(v.x, yOpp(v.y), zOpp(v.z));
+        public static Vector3 OppXYZ(this Vector3 v, Func<float, float> xOpp, Func<float, float> yOpp, Func<float, float> zOpp) => new Vector3(xOpp(v.x), yOpp(v.y), zOpp(v.z));
 
         #endregion Set
 
