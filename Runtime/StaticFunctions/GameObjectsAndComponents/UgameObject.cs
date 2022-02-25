@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -37,6 +38,25 @@ namespace U.Gears
             }
 
             return childsList.ToArray();
+        }
+
+        public static void OppChilds(this GameObject gameObject, Action<GameObject> action)
+        {
+            foreach (Transform child in gameObject.transform)  // Cant use Linq here
+            {
+                if (child == null)
+                    continue;
+
+                try
+                {
+                    action.Invoke(child.gameObject);
+                }
+                catch (Exception e)
+                {
+                    Debug.Log("Exeption executing Opp in child, " + e);
+                }
+
+            }
         }
 
     }
