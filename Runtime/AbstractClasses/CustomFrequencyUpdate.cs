@@ -14,7 +14,7 @@ namespace U.Gears
         }
 
         [Header("Frequency")]
-        [SerializeField] private float period = .1f;
+        [SerializeField] protected float period = .1f;
         [SerializeField] private TimeModeOptions timeMode = TimeModeOptions.DeltaTime;
 
         public float Period { get { return period; } set { period = value; } }
