@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using U.Gears.Math;
 using UnityEngine;
 
@@ -15,11 +13,11 @@ namespace U.Gears
 
         [Header("Frequency")]
         [SerializeField] protected float period = .1f;
-        [SerializeField] private TimeModeOptions timeMode = TimeModeOptions.DeltaTime;
+        [SerializeField] protected TimeModeOptions timeMode = TimeModeOptions.DeltaTime;
 
         public float Period { get { return period; } set { period = value; } }
 
-        private float time = 0;
+        protected float time = 0;
 
         // Update is called once per frame
         void Update()
