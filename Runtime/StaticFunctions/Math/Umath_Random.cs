@@ -51,5 +51,16 @@ namespace U.Gears.Math
 
         }
 
+        public static bool RandomBool(int percentage, bool state)
+        {
+            var p = percentage.Min(0).Max(100);
+
+            var n = UnityEngine.Random.Range(0, 100);
+
+            if (n <= p) return state;
+            else return !state;
+
+        }
+
     }
 }
