@@ -14,10 +14,10 @@ namespace U.Gears.Editor
         {
             "using UnityEngine;",
             "",
-            "public static partial class "+fileName+"",
+            "public static partial class Startup",
             "{",
             "    [RuntimeInitializeOnLoadMethod]",
-            "    public static void Startup()",
+            "    public static void "+fileName+"()",
             "    {",
             "",
             "        // Code here",
